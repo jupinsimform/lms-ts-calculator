@@ -147,15 +147,21 @@ changeSign === null || changeSign === void 0 ? void 0 : changeSign.addEventListe
 // calculate factorial for given value
 fact === null || fact === void 0 ? void 0 : fact.addEventListener("click", function () {
     let int = Number(input.value);
-    if (int == 0 || int == 1) {
-        int = 1;
+    if (int != Infinity && !isNaN(int)) {
+        if (int == 0 || int == 1) {
+            int = 1;
+        }
+        else {
+            for (var i = int - 1; i >= 1; i--) {
+                int *= i;
+            }
+        }
+        input.value = int.toString();
     }
     else {
-        for (var i = int - 1; i >= 1; i--) {
-            int *= i;
-        }
+        alert("Invalid Input");
+        input.value = "";
     }
-    input.value = int.toString();
 });
 // this erase one value from the back of any displayed value
 backspace === null || backspace === void 0 ? void 0 : backspace.addEventListener("click", function () {

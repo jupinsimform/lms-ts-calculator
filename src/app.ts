@@ -168,14 +168,19 @@ changeSign?.addEventListener("click", () => {
 // calculate factorial for given value
 fact?.addEventListener("click", function () {
   let int: number = Number(input.value);
-  if (int == 0 || int == 1) {
-    int = 1;
-  } else {
-    for (var i = int - 1; i >= 1; i--) {
-      int *= i;
+  if (int != Infinity && !isNaN(int)) {
+    if (int == 0 || int == 1) {
+      int = 1;
+    } else {
+      for (var i = int - 1; i >= 1; i--) {
+        int *= i;
+      }
     }
+    input.value = int.toString();
+  } else {
+    alert("Invalid Input");
+    input.value = "";
   }
-  input.value = int.toString();
 });
 
 // this erase one value from the back of any displayed value
